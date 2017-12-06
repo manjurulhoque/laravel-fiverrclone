@@ -5,15 +5,22 @@ namespace App\Http\Controllers;
 use App\Gig;
 use Illuminate\Http\Request;
 use Image;
+use Auth;
 
 class GigController extends Controller {
+
+	public function __construct() {
+		$this->middleware('auth', ['except' => 'index']);
+	}
+
 	/**
 	 * Display a listing of the resource.
 	 *
 	 * @return \Illuminate\Http\Response
 	 */
 	public function index() {
-		return view( 'home' );
+		$gigs = Gig::all();
+		return view( 'gig.my_gigs')->withGigs($gigs);
 	}
 
 	/**
@@ -35,12 +42,13 @@ class GigController extends Controller {
 	public function store( Request $request ) {
 		$this->validate( $request, array(
 			'title'       => 'required|max:255',
-			'slug'        => 'required|alpha_dash|min:5|max:255|unique:posts,slug',
-			'category_id' => 'required|integer',
-			'body'        => 'required'
+			'price'       => 'required',
+			'category'    => 'required',
+			'description' => 'required'
 		) );
 		$gig = new Gig;
 
+		$gig->user_id = Auth::user()->id;
 		$gig->title       = $request->title;
 		$gig->category    = $request->category;
 		$gig->description = $request->description;

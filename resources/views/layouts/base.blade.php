@@ -86,6 +86,7 @@
 </nav>
 <div id="body" style="margin-top: 10%">
     <div class="container">
+        @include('layouts.messages')
         @yield('content')
     </div>
 </div>

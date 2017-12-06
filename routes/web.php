@@ -18,4 +18,5 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::resource('gigs', 'GigController');
+Route::resource('gigs', 'GigController', ['except' => 'index']);
+Route::get('/my_gigs', 'GigController@index')->name('my_gigs');
