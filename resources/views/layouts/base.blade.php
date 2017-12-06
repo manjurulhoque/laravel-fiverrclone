@@ -16,7 +16,7 @@
         <div class="container">
             <div class="navbar-header">
                 <a class="navbar-brand" href="/">
-                    <img src="{% static 'img/logo.jpg' %}" height="23">
+                    <img src="{{asset('img/logo.jpg')}}" height="23">
                 </a>
             </div>
             <form class="navbar-form navbar-left" role="search">
@@ -47,15 +47,15 @@
                             <li role="separator" class="divider"></li>
                             <li><a href="">My Profile</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="">Logout</a></li>
+                            <li><a href="{{ route('logout') }}">Logout</a></li>
                         </ul>
                     </li>
                 @else
                     <li>
-                        <a href="">Login</a>
+                        <a href="{{ route('login') }}">Login</a>
                     </li>
                     <li>
-                        <a href="">Register</a>
+                        <a href="{{ route('register') }}">Register</a>
                     </li>
                 @endif
             </ul>
@@ -73,7 +73,7 @@
         </div>
     </div>
 </nav>
-<div id="body">
+<div id="body" style="margin-top: 10%">
     <div class="container">
         @yield('content')
     </div>
