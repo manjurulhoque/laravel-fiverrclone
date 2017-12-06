@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Fiverr Clone</title>
+    <title>Laravel Fiverr Clone</title>
 
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
@@ -43,7 +43,7 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li><a href="{{ route('gigs.create') }}">Create a gig</a></li>
-                            <li><a href="">My Gigs</a></li>
+                            <li><a href="{{ route('my_gigs') }}">My Gigs</a></li>
                             <li role="separator" class="divider"></li>
                             <li><a href="">My Profile</a></li>
                             <li role="separator" class="divider"></li>

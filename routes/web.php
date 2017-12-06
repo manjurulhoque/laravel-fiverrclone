@@ -11,12 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
-
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index')->name('home');
 Route::resource('gigs', 'GigController', ['except' => 'index']);
 Route::get('/my_gigs', 'GigController@index')->name('my_gigs');

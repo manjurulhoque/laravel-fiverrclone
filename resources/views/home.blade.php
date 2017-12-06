@@ -1,23 +1,23 @@
 @extends('layouts.base')
 
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Dashboard</div>
-
-                <div class="panel-body">
-                    @if (session('status'))
-                        <div class="alert alert-success">
-                            {{ session('status') }}
+    <div class="container">
+        <div class="row">
+            @foreach ($gigs as $gig)
+                <div class="col-md-3">
+                    <div class="thumbnail">
+                        <a href="">
+                            <img src="{{asset('/img/gigs/' . $gig->image)}}">
+                        </a>
+                        <div class="caption">
+                            <p><a href="">{{ $gig->title }}</a></p>
+                            <p><span>by <a href="">{{ $gig->user->username }}</a></span>
+                                <b class="green pull-right">${{ $gig->price }}</b>
+                            </p>
                         </div>
-                    @endif
-
-                    You are logged in!
+                    </div>
                 </div>
-            </div>
+            @endforeach
         </div>
     </div>
-</div>
 @endsection

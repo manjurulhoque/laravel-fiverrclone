@@ -19,7 +19,7 @@ class GigController extends Controller {
 	 * @return \Illuminate\Http\Response
 	 */
 	public function index() {
-		$gigs = Gig::all();
+		$gigs = Gig::all()->where('user_id', Auth::user()->id);
 		return view( 'gig.my_gigs')->withGigs($gigs);
 	}
 
@@ -65,7 +65,7 @@ class GigController extends Controller {
 
 		$gig->save();
 
-		return redirect()->route( 'gigs.index');
+		return redirect()->route( 'my_gigs');
 	}
 
 	/**
