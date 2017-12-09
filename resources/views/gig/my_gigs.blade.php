@@ -11,21 +11,21 @@
                 <th>Status</th>
             </tr>
             </thead>
-            <tbod>
-                @foreach ($gigs as $gig)
-                    <tr>
-                        <td><a href="">{{ $gig->title }}</a></td>
-                        <td>{{ $gig->price }}</td>
-                        <td>
-                            @if($gig->status)
-                                Active
-                            @else
-                                Disabled
-                            @endif
-                        </td>
-                    </tr>
-                @endforeach
-            </tbod>
+            <tbody>
+            @foreach ($gigs as $gig)
+                <tr>
+                    <td><a href="{{ route('gigs.show', $gig->id) }}">{{ $gig->title }}</a></td>
+                    <td>{{ $gig->price }}</td>
+                    <td>
+                        @if($gig->status)
+                            Active
+                        @else
+                            Disabled
+                        @endif
+                    </td>
+                </tr>
+            @endforeach
+            </tbody>
         </table>
     </div>
 @endsection

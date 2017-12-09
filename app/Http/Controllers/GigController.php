@@ -10,7 +10,7 @@ use Auth;
 class GigController extends Controller {
 
 	public function __construct() {
-		$this->middleware('auth', ['except' => 'index']);
+		$this->middleware('auth', ['except' => ['index', 'show']]);
 	}
 
 	/**
@@ -76,7 +76,9 @@ class GigController extends Controller {
 	 * @return \Illuminate\Http\Response
 	 */
 	public function show( $id ) {
-		//
+		$gig = Gig::find($id);
+
+		return view('gig.gig_details')->withGig($gig);
 	}
 
 	/**
@@ -87,7 +89,7 @@ class GigController extends Controller {
 	 * @return \Illuminate\Http\Response
 	 */
 	public function edit( $id ) {
-		//
+
 	}
 
 	/**
