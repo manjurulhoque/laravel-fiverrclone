@@ -16,4 +16,5 @@ Auth::routes();
 Route::get('/', 'HomeController@index')->name('home');
 Route::resource('gigs', 'GigController', ['except' => 'index']);
 Route::get('/my_gigs', 'GigController@index')->name('my_gigs');
-Route::any('/user/{name}', 'ProfileController@user_profile')->name('profile');
+Route::get('/user/{name}', 'ProfileController@user_profile')->name('profile');
+Route::put('/user/{id}', 'ProfileController@update')->name('profile.update');

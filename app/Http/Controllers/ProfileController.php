@@ -14,4 +14,12 @@ class ProfileController extends Controller
 
 		return view('profile')->withProfile($profile);
     }
+
+    public function update(Request $request, $id){
+    	$profile = Profile::where('user_id', '=', $id)->get()->first();
+	    $profile->about = $request->about;
+
+	    $profile->save();
+	    return redirect()->route('my_gigs');
+    }
 }

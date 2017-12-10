@@ -2,8 +2,9 @@
 
 @section('content')
     @if(Auth::check())
-        <form method="POST">
+        <form method="post" action="{{ route('profile.update', $profile->id) }}">
             {{ csrf_field() }}
+            {{ method_field('PUT') }}
             <div class="jumbotron text-center">
                 <h1><b>{{ $profile->about }}</b></h1>
             </div>

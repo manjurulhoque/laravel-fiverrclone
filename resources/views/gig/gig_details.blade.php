@@ -8,7 +8,7 @@
                 <div class="panel-body">
                     <h3>{{ $gig->title }}</h3>
                     <hr/>
-                    <img src="{{asset('/img/gigs/' . $gig->image)}}" class="img-repsonsive center-block">
+                    <img style="width: 100%" src="{{asset('/img/gigs/' . $gig->image)}}" class="img-repsonsive center-block">
                 </div>
             </div>
             <div class="panel panel-default">
@@ -31,7 +31,7 @@
 
                     @if(Auth::check())
                         <form method="POST" action="">
-                            {% csrf_token %}
+                            {{csrf_field()}}
                             <div id="payment-form"></div>
                             <input name="gig_id" value="{{ $gig->id }}" hidden>
                             <button type="submit" class="btn btn-success btn-block">Order Now (${{ $gig->price }})
