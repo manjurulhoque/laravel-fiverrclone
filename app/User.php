@@ -26,4 +26,14 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function gigs()
+    {
+    	return $this->hasMany('App\Gig');
+    }
+
+    public function profile()
+    {
+    	return $this->hasOne('App\Profile');
+    }
 }
