@@ -32,8 +32,8 @@
                             Sell & Buy
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href="">My Sellings</a></li>
-                            <li><a href="">My Buyings</a></li>
+                            <li><a href="{{ route('my_sellings') }}">My Sellings</a></li>
+                            <li><a href="{{ route('my_orders') }}">My Orders</a></li>
                         </ul>
                     </li>
                     <li class="dropdown">

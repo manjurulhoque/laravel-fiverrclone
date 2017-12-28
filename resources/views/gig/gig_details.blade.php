@@ -51,12 +51,12 @@
         <div class="col-md-4">
             <div class="panel panel-default">
                 <div class="panel-body">
-
                     @if(Auth::check())
-                        <form method="POST" action="">
+                        <form method="POST" action="{{route('purchases.store')}}">
                             {{csrf_field()}}
-                            <div id="payment-form"></div>
+                            {{--<div id="payment-form"></div>--}}
                             <input name="gig_id" value="{{ $gig->id }}" hidden>
+                            <input name="to_user_id" value="{{ $gig->user->id }}" hidden>
                             <button type="submit" class="btn btn-success btn-block">Order Now (${{ $gig->price }})
                             </button>
                         </form>

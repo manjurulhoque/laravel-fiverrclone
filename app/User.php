@@ -36,4 +36,9 @@ class User extends Authenticatable
     {
     	return $this->hasOne('App\Profile');
     }
+
+    public function orders()
+    {
+    	return $this->hasMany('App\Gig');
+    }
 }

@@ -6,5 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Purchase extends Model
 {
-    //
+    protected $fillable = ['user_id', 'gig_id', 'to_user_id'];
+
+    public function gig()
+    {
+    	return $this->belongsTo('App\Gig');
+    }
 }

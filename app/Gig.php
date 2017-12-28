@@ -15,4 +15,6 @@ class Gig extends Model
 	{
 		return $this->hasMany('App\Review');
 	}
+
+	//public function puc
 }
