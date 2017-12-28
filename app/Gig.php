@@ -16,5 +16,8 @@ class Gig extends Model
 		return $this->hasMany('App\Review');
 	}
 
-	//public function puc
+	public function purchases()
+	{
+		return $this->hasMany('App\Purchase');
+	}
 }

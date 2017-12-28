@@ -18,7 +18,9 @@ class PurchaseController extends Controller
         Purchase::create([
         	'user_id' => Auth::user()->id,
 	        'to_user_id' => $request->to_user_id,
-	        'gig_id' => $request->gig_id
+	        'gig_id' => $request->gig_id,
+	        'price' => $request->price,
+	        'days' => $request->days
         ]);
 
         return redirect()->route('gigs.show', $request->gig_id);
