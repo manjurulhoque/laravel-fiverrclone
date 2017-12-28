@@ -12,7 +12,7 @@ class ProfileController extends Controller
 		$user = User::where('username', '=', $name)->get()->first();
 		$profile = Profile::where('user_id', '=', $user->id)->get()->first();
 
-		return view('profile')->withProfile($profile);
+		return view('profile')->withProfile($profile)->withName($name);
     }
 
     public function update(Request $request, $id){

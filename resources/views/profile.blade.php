@@ -1,7 +1,7 @@
 @extends('layouts.base')
 
 @section('content')
-    @if(Auth::check())
+    @if(Auth::check() && Auth::user()->username == $name)
         <form method="post" action="{{ route('profile.update', $profile->id) }}">
             {{ csrf_field() }}
             {{ method_field('PUT') }}

@@ -71,12 +71,14 @@ class GigController extends Controller {
 	/**
 	 * Display the specified resource.
 	 *
-	 * @param  int $id
+	 * @param Gig $gig
 	 *
 	 * @return \Illuminate\Http\Response
+	 * @internal param int $id
+	 *
 	 */
-	public function show( $id ) {
-		$gig = Gig::find($id);
+	public function show(Gig $gig ) {
+		//$gig = Gig::find($gig);
 
 		return view('gig.gig_details')->withGig($gig);
 	}
