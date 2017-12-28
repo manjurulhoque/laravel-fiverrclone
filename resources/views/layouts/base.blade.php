@@ -93,8 +93,9 @@
 
 <footer id="footer">
     <div class="container">
-        <span>Fiverr clone &copy; 2017</span>
+        <span>Laravel Fiverr clone &copy; 2017</span>
     </div>
 </footer>
+@yield('scripts')
 </body>
 </html>
