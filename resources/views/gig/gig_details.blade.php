@@ -9,7 +9,7 @@
                     <h3>{{ $gig->title }}</h3>
                     <hr/>
                     <img style="width: 100%" src="{{asset('/img/gigs/' . $gig->image)}}"
-                         class="img-repsonsive center-block">
+                         class="img-responsive center-block">
                 </div>
             </div>
             <div class="panel panel-default">
@@ -22,7 +22,29 @@
             </div>
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h4>Review</h4>
+                    <h4>Reviews</h4>
+                </div>
+                <div class="panel-body">
+                    @if($gig->reviews->count() > 0)
+                        <ul class="list-group">
+                            @foreach($gig->reviews as $review)
+                                <li class="list-group-item">
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <img src="" class="img-circle center-block"
+                                                 height="60" width="60">
+                                        </div>
+                                        <div class="col-md-10">
+                                            <h5>username</h5>
+                                            <p>{{ $review->content }}</p>
+                                        </div>
+                                    </div>
+                                </li>
+                            @endforeach
+                        </ul>
+                    @else
+                        <h3>No review yet</h3>
+                    @endif
                 </div>
             </div>
         </div>
